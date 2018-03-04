@@ -61,7 +61,7 @@ public class ExampleInstrumentedTest {
         mainActivity = main.getActivity();
     }
     @Test
-    public void Login_SearchTest(){
+    public void LoginSearchTest(){
         // Context of the app under test.
 
         onView(withId(R.id.edt_username))
