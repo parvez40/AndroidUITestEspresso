@@ -8,7 +8,12 @@ jobs:
       - image: runmymind/docker-android-sdk
     steps:
       - checkout
-      - run:
+      - run: emulator -avd circleci-android24 -no-window:
+        background: true
+        parallel: true
+      -run: circle-android wait-for-boot
+      -run: cp -r AndroidUITestEspresso/build/outputs $CIRCLE_ARTIFACTS
+      -run: cp -r AndroidUITestEspresso/build/outputs/androidTest-results/* $CIRCLE_TEST_REPORTS
 
 general:
     artifacts:
